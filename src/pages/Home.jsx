@@ -9,17 +9,24 @@ const Home = () => {
       link: '/api/imb',
     },
     {
-      title: 'API Meteo',
-      description: 'Obtain weather information for any location.',
-      link: '/api/weather',
+      title: 'Joke',
+      image: '/jokeBanner.webp',
+      description: 'Get a random joke.',
+      link: '/api/joke',
+    },
+    {
+      title: 'Tenders Romania',
+      image: '/tenders.webp',
+      description: 'Get the latest tenders in Romania.',
+      link: '/api/tenders',
     },
   ];
 
   return (
     <main className="container mx-auto p-4">
       <header className="mb-8">
-        <h1 className="text-4xl font-bold text-center">MultiAPI Hub</h1>
-        <p className="text-center text-gray-600 mt-6">
+        <h1 className="text-6xl font-bold text-center">MultiAPI Hub</h1>
+        <p className="text-2xl text-center text-gray-400 mt-6">
            Welcome to MultiAPI Hub! This app gives you access to a variety of APIs, all in one convenient place.
         </p>
       </header>

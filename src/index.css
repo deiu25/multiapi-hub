@@ -57,6 +57,14 @@
     @apply text-2xl font-bold text-white sm:text-3xl;
   }
 
+  h3 {
+    @apply text-xl font-bold text-white sm:text-2xl;
+  }
+
+  p, span {
+    @apply text-gray-100;
+  }
+
   main {
     @apply min-h-screen relative bg-primary;
   }

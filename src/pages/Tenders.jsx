@@ -1,0 +1,99 @@
+import { useEffect, useState } from 'react';
+import TenderCard from '../components/Tenders/TenderCard';
+
+const Tenders = () => {
+  const [tenders, setTenders] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [page, setPage] = useState(1);
+  const [pageCount, setPageCount] = useState(0);
+
+  const fetchTenders = (currentPage) => {
+    setLoading(true);
+    fetch(`/api/ro/tenders?page=${currentPage}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Eroare la preluarea datelor");
+        }
+        return response.json();
+      })
+      .then(data => {
+        const sortedTenders = data.data.sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        );
+        setTenders(sortedTenders);
+        setPageCount(data.page_count);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError(err);
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    fetchTenders(page);
+  }, [page]);
+
+  const handlePrevPage = () => {
+    if (page > 1) setPage(page - 1);
+  };
+
+  const handleNextPage = () => {
+    if (page < pageCount) setPage(page + 1);
+  };
+
+  if (loading) {
+    return <div className="p-4 text-center">Se încarcă...</div>;
+  }
+
+  if (error) {
+    return (
+      <div className="p-4 text-center text-red-500">
+        Eroare: {error.message}
+      </div>
+    );
+  }
+
+  return (
+    <div className="p-4 max-w-6xl mx-auto">
+      <h2 className="text-3xl font-bold mb-6 text-center">Lista Licitațiilor</h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {tenders.map(tender => (
+          <TenderCard key={tender.id} tender={tender} />
+        ))}
+      </div>
+
+      <div className="flex justify-between items-center mt-6">
+        <button
+          onClick={handlePrevPage}
+          disabled={page === 1}
+          className={`px-4 py-2 rounded ${
+            page === 1
+              ? "bg-gray-300 cursor-not-allowed"
+              : "bg-blue-500 hover:bg-blue-600 text-white"
+          }`}
+        >
+          Previous
+        </button>
+        <span className="text-gray-700">
+          Pagina {page} din {pageCount}
+        </span>
+        <button
+          onClick={handleNextPage}
+          disabled={page === pageCount}
+          className={`px-4 py-2 rounded ${
+            page === pageCount
+              ? "bg-gray-300 cursor-not-allowed"
+              : "bg-blue-500 hover:bg-blue-600 text-white"
+          }`}
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Tenders;
