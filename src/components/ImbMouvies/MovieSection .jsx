@@ -1,4 +1,5 @@
-import Spinner from './Spinner';
+
+import Spinner from '../Spinner';
 import MovieCard from './MovieCard';
 import Pagination from './Pagination';
 

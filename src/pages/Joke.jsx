@@ -119,6 +119,8 @@ const Joke = () => {
             ))}
           </select>
         </div>
+        <p className="text-xs text-gray-400 mt-4">Note: Some jokes may be inappropriate or offensive. Use at your own discretion.</p>
+        <p className="text-xs text-gray-400 mt-4">Powered by <a href="https://jokeapi.dev/" target="_blank" rel="noreferrer" className="underline">JokeAPI</a> and <a href="https://voicerss.org/" target="_blank" rel="noreferrer" className="underline">VoiceRSS</a>.</p>
       </div>
     </div>
   );

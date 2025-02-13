@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"; 
+import { useEffect, useState } from "react";
 import { useDebounce } from "react-use";
 import Search from "../components/ImbMouvies/Search";
-import Spinner from "../components/ImbMouvies/Spinner";
+import Spinner from "../components/Spinner";
 import NavBar from "../components/ImbMouvies/NavBar";
 import MoviesSection from "../components/ImbMouvies/MovieSection ";
 import { getTrendingMovies, updateSearchCount } from "../appwrite/imbMovie";
@@ -114,95 +114,96 @@ const Imb = () => {
     error: topRatedError,
     totalPages: topRatedTotalPages,
   } = useFetchMovies(`${API_BASE_URL}/movie/top_rated?page=${topRatedPage}`);
-    
+
   return (
     <main>
-      <NavBar />
+
       <div className="pattern" />
       <div className="wrapper">
-        <header>
-          <img src="/hero.png" alt="Hero Banner" />
-          <h1>
-          Effortless <span className="text-gradient">Movies</span> Discovery: Your Perfect Film Awaits
+
+        <header className="mb-6 text-center ml-40">
+          <img src="/hero.png" alt="Hero Banner" className="mx-auto" />
+          <h1 className="text-4xl font-bold mt-4">
+            🎥 Discover <span className="text-gradient">Awesome Movies</span> Instantly!
           </h1>
         </header>
+        <div className="flex-grow ml-64 p-6">
+          <NavBar />
+          {/* Trending Based on Searches */}
+          <section id="trendingSearches" className="trending">
+            <h2 className="text-2xl font-semibold mb-4">🔥 Trending Searches</h2>
+            {isTrendingLoading ? (
+              <Spinner />
+            ) : trendingError ? (
+              <p className="text-red-500">{trendingError}</p>
+            ) : trendingMovies.length > 0 ? (
+              <ul>
+                {trendingMovies.map((movie, index) => (
+                  <li key={movie.$id}>
+                    <p>{index + 1}</p>
+                    <img src={movie.poster_url} alt={movie.title} />
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No trending movies available.</p>
+            )}
+          </section>
 
-        {/* Trending Based on Searches */}
-        <section id="trendingSearches" className="trending">
-          <h2 className="text-gradient">
-            Trending Movies Based on Searches on this Site
-          </h2>
-          {isTrendingLoading ? (
-            <Spinner />
-          ) : trendingError ? (
-            <p className="text-red-500">{trendingError}</p>
-          ) : trendingMovies.length > 0 ? (
-            <ul>
-              {trendingMovies.map((movie, index) => (
-                <li key={movie.$id}>
-                  <p>{index + 1}</p>
-                  <img src={movie.poster_url} alt={movie.title} />
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No trending movies available.</p>
-          )}
-        </section>
+          <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
-        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          {/* Movies by Popularity */}
+          <MoviesSection
+            id="moviesByPopularity"
+            title="Movies by Popularity"
+            movies={movieList}
+            isLoading={isLoading}
+            error={errorMessage}
+            sectionClassName="all-movies mt-16"
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
 
-        {/* Movies by Popularity */}
-        <MoviesSection
-          id="moviesByPopularity"
-          title="Movies by Popularity"
-          movies={movieList}
-          isLoading={isLoading}
-          error={errorMessage}
-          sectionClassName="all-movies mt-16"
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={setCurrentPage}
-        />
+          {/* Trending This Week */}
+          <MoviesSection
+            id="trendingThisWeek"
+            title="Trending This Week"
+            movies={trendingWeekMovies}
+            isLoading={isTrendingWeekLoading}
+            error={trendingWeekError}
+            sectionClassName="all-movies mt-20"
+            currentPage={trendingWeekPage}
+            totalPages={trendingWeekTotalPages}
+            onPageChange={setTrendingWeekPage}
+          />
 
-        {/* Trending This Week */}
-        <MoviesSection
-          id="trendingThisWeek"
-          title="Trending This Week"
-          movies={trendingWeekMovies}
-          isLoading={isTrendingWeekLoading}
-          error={trendingWeekError}
-          sectionClassName="all-movies mt-20"
-          currentPage={trendingWeekPage}
-          totalPages={trendingWeekTotalPages}
-          onPageChange={setTrendingWeekPage}
-        />
+          {/* Trending Today */}
+          <MoviesSection
+            id="trendingToday"
+            title="Trending Today"
+            movies={trendingDayMovies}
+            isLoading={isTrendingDayLoading}
+            error={trendingDayError}
+            sectionClassName="all-movies mt-20"
+            currentPage={trendingDayPage}
+            totalPages={trendingDayTotalPages}
+            onPageChange={setTrendingDayPage}
+          />
 
-        {/* Trending Today */}
-        <MoviesSection
-          id="trendingToday"
-          title="Trending Today"
-          movies={trendingDayMovies}
-          isLoading={isTrendingDayLoading}
-          error={trendingDayError}
-          sectionClassName="all-movies mt-20"
-          currentPage={trendingDayPage}
-          totalPages={trendingDayTotalPages}
-          onPageChange={setTrendingDayPage}
-        />
-
-        {/* Top Rated Movies */}
-        <MoviesSection
-          id="topRatedMovies"
-          title="Top Rated Movies"
-          movies={topRatedMovies}
-          isLoading={isTopRatedLoading}
-          error={topRatedError}
-          sectionClassName="all-movies mt-20"
-          currentPage={topRatedPage}
-          totalPages={topRatedTotalPages}
-          onPageChange={setTopRatedPage}
-        />
+          {/* Top Rated Movies */}
+          <MoviesSection
+            id="topRatedMovies"
+            title="Top Rated Movies"
+            movies={topRatedMovies}
+            isLoading={isTopRatedLoading}
+            error={topRatedError}
+            sectionClassName="all-movies mt-20"
+            currentPage={topRatedPage}
+            totalPages={topRatedTotalPages}
+            onPageChange={setTopRatedPage}
+          />
+        </div>
       </div>
     </main>
   );

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import TenderCard from '../components/Tenders/TenderCard';
+import Spinner from '../components/Spinner';
 
 const Tenders = () => {
   const [tenders, setTenders] = useState([]);
@@ -44,12 +45,12 @@ const Tenders = () => {
   };
 
   if (loading) {
-    return <div className="p-4 text-center">Se încarcă...</div>;
+    return <Spinner />;
   }
 
   if (error) {
     return (
-      <div className="p-4 text-center text-red-500">
+      <div className="p-4 max-w-6xl mx-auto text-red-600">
         Eroare: {error.message}
       </div>
     );
@@ -57,7 +58,8 @@ const Tenders = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6 text-center">Lista Licitațiilor</h2>
+      <h1 className="text-3xl font-bold mb-6 text-center">Tenders List</h1>
+      <h3 className="text-xl font-bold mb-4 text-center mb-10">The list displays tenders from an API that supplies data from 2021.</h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {tenders.map(tender => (
