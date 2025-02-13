@@ -27,4 +27,11 @@ export const apis = [
       link: '/api/weather',
       aboutLink: '/api/about/weather',
     },
+    {
+      title: 'MovieLand',
+      image: '/movieland.webp',
+      description: 'Search for movies.',
+      link: '/api/movie',
+      aboutLink: '/api/about/movie',
+    },
   ];

@@ -72,25 +72,50 @@ export const apiDescriptions = {
     },
 
     tenders: {
-    title: "Tenders API",
-    description: "Un sistem avansat care permite utilizatorilor să exploreze licitațiile publice din România, filtrate și sortate după diverse criterii.",
-    features: [
-      "📄 Listare licitații publice cu **detalii complete** (titlu, categorie, furnizor, achizitor, valoare)",
-      "🔍 **Paginare automată** pentru a naviga prin toate ofertele disponibile",
-      "📆 Sortare automată după **data publicării** pentru a vedea cele mai recente licitații",
-      "🛒 Detalii despre **furnizori** și **achizitori**, inclusiv ID-uri și nume",
-      "🏆 Informații despre **câștigătorii licitațiilor** (furnizori și valoare atribuită)",
-      "📡 **Actualizare automată a datelor** la schimbarea paginii",
-      "🔄 Interfață **rapidă și responsivă**, construită cu **React și Tailwind CSS**"
-    ],
-    technologies: [
-      "🚀 **Frontend:** React + Tailwind CSS + React Router",
-      "⚡ **State Management:** React Hooks (useState, useEffect)",
-      "📡 **API Backend:** API-ul de Licitații Publice din România (date din 2021)",
-      "📊 **Paginare & Sorting:** Logica de sortare în front-end pe baza datei licitației",
-      "🎛️ **Componente personalizate:** `TenderCard` pentru afișarea fiecărei licitații"
-    ],
-    envVars: [],
-    exploreLink: "/api/tenders",
-  },
+        title: "Tenders API",
+        description: "Un sistem avansat care permite utilizatorilor să exploreze licitațiile publice din România, filtrate și sortate după diverse criterii.",
+        features: [
+            "📄 Listare licitații publice cu **detalii complete** (titlu, categorie, furnizor, achizitor, valoare)",
+            "🔍 **Paginare automată** pentru a naviga prin toate ofertele disponibile",
+            "📆 Sortare automată după **data publicării** pentru a vedea cele mai recente licitații",
+            "🛒 Detalii despre **furnizori** și **achizitori**, inclusiv ID-uri și nume",
+            "🏆 Informații despre **câștigătorii licitațiilor** (furnizori și valoare atribuită)",
+            "📡 **Actualizare automată a datelor** la schimbarea paginii",
+            "🔄 Interfață **rapidă și responsivă**, construită cu **React și Tailwind CSS**"
+        ],
+        technologies: [
+            "🚀 **Frontend:** React + Tailwind CSS + React Router",
+            "⚡ **State Management:** React Hooks (useState, useEffect)",
+            "📡 **API Backend:** API-ul de Licitații Publice din România (date din 2021)",
+            "📊 **Paginare & Sorting:** Logica de sortare în front-end pe baza datei licitației",
+            "🎛️ **Componente personalizate:** `TenderCard` pentru afișarea fiecărei licitații"
+        ],
+        envVars: [],
+        exploreLink: "/api/tenders",
+    },
+    
+    movieLand: {
+        title: "MovieLand API",
+        description: "An interactive system that allows users to search, explore, and save their favorite movies using the OMDb API.",
+        features: [
+            "🎬 **Instant movie search** using **OMDb API**",
+            "📂 **Detailed movie display**, including **title, poster, and type**",
+            "⭐ **Favorites functionality** - users can save and manage their favorite movies",
+            "🔄 **Dynamic loading** of results with a **Load More** option",
+            "🎲 **Random recommendations** - a random movie is displayed on the first load",
+            "📡 **Efficient API consumption** - optimized search and **debounce** on search term change",
+            "⚡ **Modern and responsive design** with **Tailwind CSS** and animations"
+        ],
+        technologies: [
+            "🚀 **Frontend:** React + Tailwind CSS + React Router",
+            "🛠️ **State Management:** React Hooks (useState, useEffect)",
+            "📡 **APIs:** OMDb API for movie information",
+            "💾 **Local Storage:** Managing favorite movies with `localStorage`",
+            "🎭 **Dynamic Components:** `MovieCard` for displaying movies"
+        ],
+        envVars: [
+            "VITE_OMDAPI_KEY=\"your_omdb_api_key\""
+        ],
+        exploreLink: "/api/movies",
+    },
 };

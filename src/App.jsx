@@ -9,6 +9,9 @@ import WeatherAPIDescription from "./components/appDescription/WeatherAPIDescrip
 import IMBMoviesDescription from "./components/appDescription/IMBMoviesDescription";
 import JokeAPIDescription from "./components/appDescription/JokeAPIDescription";
 import TendersAPIDescription from "./components/appDescription/TendersAPIDescription";
+import MovieLandDescription from "./components/appDescription/MovieLandDescription";
+import Movie from "./pages/MovieLand";
+import MovieDetails from "./components/MovieLand/MovieDetails";
 
 const App = () => {
   const location = useLocation();
@@ -27,10 +30,14 @@ const App = () => {
           <Route path="/api/tenders" element={<Tenders />} />
           <Route path="/api/weather" element={<Weather />} />
 
+          <Route path="/api/movie" element={<Movie />} />
+          <Route path="/movie/:id" element={<MovieDetails />} />
+
           <Route path="/api/about/weather" element={<WeatherAPIDescription />} />
           <Route path="/api/about/imb" element={<IMBMoviesDescription />} />
           <Route path="/api/about/joke" element={<JokeAPIDescription />} />
           <Route path="/api/about/tenders" element={<TendersAPIDescription />} />
+          <Route path="/api/about/movie" element={<MovieLandDescription />} />
         </Routes>
       </main>
     </div>
