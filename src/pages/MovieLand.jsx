@@ -15,10 +15,8 @@ const Movie = () => {
     const [loading, setLoading] = useState(false);
     const [initialLoading, setInitialLoading] = useState(true);
     
-    // Alege un titlu random din array
     const randomTitle = randomMovies[Math.floor(Math.random() * randomMovies.length)];
 
-    // Funcție pentru a căuta filme
     const fetchMovies = async (title, pageNum = 1) => {
         setLoading(true);
         const response = await fetch(`${API_URL}&s=${title}&page=${pageNum}`);
@@ -29,17 +27,14 @@ const Movie = () => {
         setInitialLoading(false);
     };
 
-    // Încarcă filme random la accesarea paginii
     useEffect(() => {
         fetchMovies(randomTitle);
     }, []);
 
-    // Caută filme când utilizatorul introduce un termen nou
     useEffect(() => {
         if (searchTerm) fetchMovies(searchTerm, page);
     }, [searchTerm, page]);
 
-    // Adaugă/șterge filme din favorite
     const toggleFavorite = (movie) => {
         let updatedFavorites = getFavorites();
         const index = updatedFavorites.findIndex((fav) => fav.imdbID === movie.imdbID);
@@ -56,12 +51,11 @@ const Movie = () => {
 
     return (
       <div className="flex flex-col items-center min-h-screen p-6 bg-gradient-to-r from-[#0f0f0f] via-[#1a1a2e] to-[#0f0f0f] text-white">
-        {/* Header */}
+
         <h1 className="text-5xl font-extrabold text-neon-cyan tracking-wide">
           MovieLand
         </h1>
   
-        {/* Search Bar */}
         <div className="flex w-full max-w-3xl mt-6 p-3 bg-[#1a1a2e] rounded-full shadow-lg border border-neon-cyan focus-within:border-neon-lime transition-all">
           <input
             className="flex-1 p-2 text-lg text-white bg-transparent outline-none placeholder-gray-400"
@@ -74,14 +68,12 @@ const Movie = () => {
           />
         </div>
 
-        {/* Loading Spinner */}
         {initialLoading && (
           <div className="flex justify-center items-center mt-6">
             <Spinner />
           </div>
         )}
 
-        {/* Movie Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 w-full max-w-6xl">
           {!loading && movies.length > 0 ? (
             movies.map((movie) => (

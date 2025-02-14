@@ -9,8 +9,6 @@ export default defineConfig({
       '/api/ro': {
         target: 'https://tenders.guru',
         changeOrigin: true,
-        // Rewrite nu este necesar dacă vrei să păstrezi exact calea:
-        // rewrite: path => path.replace(/^\/api\/ro/, '/api/ro'),
       },
     },
   },

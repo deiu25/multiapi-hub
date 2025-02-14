@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { BackgroundGradient } from "./ui/background-gradient";
 
 const APIDescriptionCard = ({ title, description, features, technologies, envVars, exploreLink }) => {
@@ -37,9 +38,9 @@ const APIDescriptionCard = ({ title, description, features, technologies, envVar
         </div>
 
         <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
-          <a href={exploreLink} className="px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white font-bold rounded-full transition duration-300">
+          <Link to={exploreLink} className="px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white font-bold rounded-full transition duration-300">
             Explore API
-          </a>
+          </Link>
         </div>
       </BackgroundGradient>
     </div>
