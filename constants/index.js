@@ -34,4 +34,11 @@ export const apis = [
       link: '/api/movie',
       aboutLink: '/api/about/movie',
     },
+    {
+      title: 'Advices',
+      image: '/advices.webp',
+      description: 'Get a random advice.',
+      link: '/api/advices',
+      aboutLink: '/api/about/advices',
+    },
   ];

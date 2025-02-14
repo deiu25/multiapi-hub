@@ -1,8 +1,8 @@
 import { apiDescriptions } from "../../../constants/apiDescriptions";
 import APIDescriptionCard from "../APIDescriptionCard";
 
-const JokeAPIDescription = () => {
+const MovieLandDescription = () => {
     return <APIDescriptionCard {...apiDescriptions.movieLand} />;
   };
 
-export default JokeAPIDescription
+export default MovieLandDescription

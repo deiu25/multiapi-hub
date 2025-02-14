@@ -93,7 +93,7 @@ export const apiDescriptions = {
         envVars: [],
         exploreLink: "/api/tenders",
     },
-    
+
     movieLand: {
         title: "MovieLand API",
         description: "An interactive system that allows users to search, explore, and save their favorite movies using the OMDb API.",
@@ -118,4 +118,28 @@ export const apiDescriptions = {
         ],
         exploreLink: "/api/movies",
     },
+    advices: {
+        title: "Advice API",
+        description: "An interactive system that provides users with random pieces of advice and automatic translation based on their location.",
+        features: [
+            "💡 **Instant advice generation** using the **Advice Slip API**",
+            "🌍 **Automatic translation** of advice based on the user's country and supported languages",
+            "📍 **User location detection** through **Geolocation API** and **GeoDB Cities API**",
+            "🔄 **Refresh button** to generate new advice with a smooth UI animation",
+            "📡 **API integration for real-time data updates**",
+            "🎨 **Modern, responsive UI** built with **React, Tailwind CSS, and Framer Motion animations**"
+        ],
+        technologies: [
+            "🚀 **Frontend:** React + Tailwind CSS + Framer Motion",
+            "⚡ **Animations:** Framer Motion for smooth UI interactions",
+            "📡 **APIs:** Advice Slip API for advice, MyMemory Translation API for multilingual support, GeoDB Cities API for location-based translation",
+            "🛰️ **Location Services:** Fetches user country dynamically for automatic translation",
+            "🔄 **State Management:** React Hooks (useState, useEffect)"
+        ],
+        envVars: [],
+        exploreLink: "/api/advices",
+    },
+
+
+
 };

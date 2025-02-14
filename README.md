@@ -56,10 +56,15 @@ git push origin feature-new-api
 Note: Before running the project locally, set up your API keys in a .env.local file:
 
 ```
-VITE_WEATHER_API_KEY="your_openweather_api_key"
-VITE_TMDB_API_KEY="your_tmdb_api_key"
-VITE_OMDB_API_KEY="your_omdb_api_key"
-VITE_VOICE_RSS_API_KEY="your_voice_rss_api_key"
+VITE_APPWRITE_IMB_ID="your_api_key"
+VITE_APPWRITE_IMB_DB_ID="your_api_key"
+VITE_APPWRITE_IMB_COLLECTION_ID="your_api_key"
+
+VITE_WEATHER_API_KEY="your_api_key"
+VITE_VOICE_RSS_API_KEY="your_api_key"
+VITE_WEATHER_API_KEY="your_api_key"
+VITE_RAPIDAPI_KEY="your_api_key"
+VITE_OMDAPI_KEY="your_api_key"
 ```
 
 All contributions are welcome! 🚀

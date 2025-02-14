@@ -6,7 +6,7 @@ export const fetchUserLocation = async () => {
                     resolve({ lat: position.coords.latitude, lon: position.coords.longitude });
                 },
                 async (error) => {
-                    console.warn("Geolocation refuzată, folosim GeoDB API...");
+                    console.warn("Geolocation error:", error);
                     try {
                         const response = await fetch("https://wft-geo-db.p.rapidapi.com/v1/geo/cities?limit=1", {
                             method: "GET",
@@ -20,7 +20,7 @@ export const fetchUserLocation = async () => {
                             const city = data.data[0];
                             resolve({ lat: city.latitude, lon: city.longitude });
                         } else {
-                            reject("Nu s-a putut determina locația.");
+                            reject("The GeoDB API did not return any data.");
                         }
                     } catch (err) {
                         reject(err);
@@ -28,7 +28,7 @@ export const fetchUserLocation = async () => {
                 }
             );
         } else {
-            reject("Geolocation nu este suportată.");
+            reject("Geolocation is not available in this browser.");
         }
     });
 };
