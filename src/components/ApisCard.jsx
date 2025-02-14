@@ -24,7 +24,6 @@ const ApisCard = ({ title, image, description, link, aboutLink }) => {
             <Link
               to={link}
               className=" text-white font-bold px-4 rounded-full"
-              target="_blank"
             >
               Explore API
             </Link>

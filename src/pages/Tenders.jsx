@@ -9,17 +9,16 @@ const Tenders = () => {
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(0);
 
-  const API_BASE_URL =
-    import.meta.env.PROD
-      ? "https://tenders.guru"
-      : "/api/ro";
+  const API_BASE_URL = import.meta.env.PROD
+    ? "https://worker-for-tenders-romania.d3iu25.workers.dev"
+    : "/api/ro";
 
   const fetchTenders = (currentPage) => {
     setLoading(true);
-    fetch(`${API_BASE_URL}/tenders?page=${currentPage}`)
+    fetch(`${API_BASE_URL}?page=${currentPage}`)
       .then(response => {
         if (!response.ok) {
-          throw new Error("Eroare la preluarea datelor");
+          throw new Error(`Eroare la preluarea datelor: ${response.status}`);
         }
         return response.json();
       })
@@ -32,6 +31,7 @@ const Tenders = () => {
         setLoading(false);
       })
       .catch(err => {
+        console.error("Fetch error:", err);
         setError(err);
         setLoading(false);
       });
@@ -77,8 +77,8 @@ const Tenders = () => {
           onClick={handlePrevPage}
           disabled={page === 1}
           className={`px-4 py-2 rounded ${page === 1
-              ? "bg-gray-300 cursor-not-allowed"
-              : "bg-blue-500 hover:bg-blue-600 text-white"
+            ? "bg-gray-300 cursor-not-allowed"
+            : "bg-blue-500 hover:bg-blue-600 text-white"
             }`}
         >
           Previous
@@ -90,8 +90,8 @@ const Tenders = () => {
           onClick={handleNextPage}
           disabled={page === pageCount}
           className={`px-4 py-2 rounded ${page === pageCount
-              ? "bg-gray-300 cursor-not-allowed"
-              : "bg-blue-500 hover:bg-blue-600 text-white"
+            ? "bg-gray-300 cursor-not-allowed"
+            : "bg-blue-500 hover:bg-blue-600 text-white"
             }`}
         >
           Next
