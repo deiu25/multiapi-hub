@@ -139,6 +139,32 @@ export const apiDescriptions = {
         envVars: [],
         exploreLink: "/api/advices",
     },
+    picSearch: {
+        title: "PicSearch API",
+        description: "An advanced image search system that allows users to explore high-quality photos from Unsplash, with search filtering, detailed statistics, and a futuristic UI.",
+        features: [
+            "🔍 **Search and browse high-quality images** using the **Unsplash API**",
+            "🎲 **Random image generation** on initial load",
+            "📊 **Detailed image statistics** including downloads, views, and likes",
+            "📸 **Camera EXIF data** available for each image (make, model, aperture, exposure time, ISO, etc.)",
+            "📍 **Location details** for images with geotagging (city, country, coordinates)",
+            "📡 **API integration for real-time image updates**",
+            "🔄 **Infinite scrolling and pagination** with the 'Load More' option",
+            "🎨 **Futuristic UI with animations** using **Framer Motion and GSAP**"
+        ],
+        technologies: [
+            "🚀 **Frontend:** React + Tailwind CSS + Framer Motion + GSAP",
+            "⚡ **Animations:** GSAP for smooth transitions and Framer Motion for interactive UI effects",
+            "📡 **APIs:** Unsplash API for image search and statistics",
+            "📸 **EXIF Data Handling:** Extracts camera details for each image",
+            "🌍 **Location Services:** Retrieves city and country data for geotagged images",
+            "🔄 **State Management:** React Hooks (useState, useEffect)"
+        ],
+        envVars: [
+            "VITE_UNSPLASH_API_KEY=\"your_unsplash_api_key\""
+        ],
+        exploreLink: "/api/picsearch",
+    },
 
 
 

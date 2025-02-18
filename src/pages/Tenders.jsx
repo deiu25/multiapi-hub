@@ -11,14 +11,14 @@ const Tenders = () => {
 
   const API_BASE_URL = import.meta.env.PROD
     ? "https://worker-for-tenders-romania.d3iu25.workers.dev"
-    : "/api/ro";
+    : "/api/ro/tenders";
 
   const fetchTenders = (currentPage) => {
     setLoading(true);
     fetch(`${API_BASE_URL}?page=${currentPage}`)
       .then(response => {
         if (!response.ok) {
-          throw new Error(`Eroare la preluarea datelor: ${response.status}`);
+          throw new Error(`Serviciul este momentan indiponibil: ${response.status}`);
         }
         return response.json();
       })
@@ -63,8 +63,8 @@ const Tenders = () => {
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-center">Tenders List</h1>
-      <h3 className="text-xl font-bold mb-4 text-center mb-10">The list displays tenders from an API that supplies data from 2021.</h3>
+      <h1 className="text-3xl font-bold mb-6 text-center mt-12">Tenders List</h1>
+      <h3 className="text-xl font-bold text-center mb-10">The list displays tenders from an API that supplies data from 2021.</h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {tenders.map(tender => (

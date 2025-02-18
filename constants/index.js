@@ -41,4 +41,11 @@ export const apis = [
       link: '/api/advices',
       aboutLink: '/api/about/advices',
     },
+    {
+      title: 'PicSearch',
+      image: '/picSearch.webp',
+      description: 'Search for images.',
+      link: '/api/picsearch',
+      aboutLink: '/api/about/picsearch',
+    },
   ];

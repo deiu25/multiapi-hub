@@ -84,7 +84,7 @@ const Joke = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white p-4">
-      <h1 className="text-3xl sm:text-4xl font-bold text-blue-400 mb-6">Joke Bot 🤖</h1>
+      <h1 className="text-3xl sm:text-4xl font-bold text-blue-400 mb-6 mt-10">Joke Bot 🤖</h1>
       <div className="flex flex-col items-center bg-gray-800 p-6 rounded-xl shadow-lg w-full max-w-2xl">
         <motion.div className="relative w-32 h-32 flex justify-center items-center bg-neon-cyan rounded-full"
           animate={{ scale: [1, 1.1] }} transition={{ repeat: Infinity, duration: 2 }}>

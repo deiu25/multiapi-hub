@@ -14,6 +14,8 @@ import Movie from "./pages/MovieLand";
 import MovieDetails from "./components/MovieLand/MovieDetails";
 import Advices from "./pages/Advices";
 import AdviceAPIDescription from "./components/appDescription/AdviceAPIDescription";
+import PicSearch from "./pages/PicSearch";
+import PicsearchAPIDescription from "./components/appDescription/PicsearchAPIDescription";
 
 const App = () => {
   const location = useLocation();
@@ -32,6 +34,7 @@ const App = () => {
           <Route path="/api/tenders" element={<Tenders />} />
           <Route path="/api/weather" element={<Weather />} />
           <Route path="/api/advices" element={<Advices />} />
+          <Route path="/api/picsearch" element={<PicSearch />} />
 
           <Route path="/api/movie" element={<Movie />} />
           <Route path="/movie/:id" element={<MovieDetails />} />
@@ -42,6 +45,7 @@ const App = () => {
           <Route path="/api/about/tenders" element={<TendersAPIDescription />} />
           <Route path="/api/about/movie" element={<MovieLandDescription />} />
           <Route path="/api/about/advices" element={<AdviceAPIDescription />} />
+          <Route path="/api/about/picsearch" element={<PicsearchAPIDescription />} />
         </Routes>
       </main>
     </div>

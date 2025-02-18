@@ -50,15 +50,15 @@ const Movie = () => {
     };
 
     return (
-      <div className="flex flex-col items-center min-h-screen p-6 bg-gradient-to-r from-[#0f0f0f] via-[#1a1a2e] to-[#0f0f0f] text-white">
+      <div className="flex flex-col items-center min-h-screen p-4 sm:p-6 bg-gradient-to-r from-[#0f0f0f] via-[#1a1a2e] to-[#0f0f0f] text-white">
 
-        <h1 className="text-5xl font-extrabold text-neon-cyan tracking-wide">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-neon-cyan tracking-wide text-center mt-10">
           MovieLand
         </h1>
   
-        <div className="flex w-full max-w-3xl mt-6 p-3 bg-[#1a1a2e] rounded-full shadow-lg border border-neon-cyan focus-within:border-neon-lime transition-all">
+        <div className="flex w-full max-w-md sm:max-w-3xl mt-6 p-3 bg-[#1a1a2e] rounded-full shadow-lg border border-neon-cyan focus-within:border-neon-lime transition-all">
           <input
-            className="flex-1 p-2 text-lg text-white bg-transparent outline-none placeholder-gray-400"
+            className="flex-1 p-2 text-base sm:text-lg text-white bg-transparent outline-none placeholder-gray-400"
             placeholder="🔍 Search for movies..."
             value={searchTerm}
             onChange={(e) => {
@@ -74,7 +74,7 @@ const Movie = () => {
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 w-full max-w-6xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8 w-full max-w-6xl px-2">
           {!loading && movies.length > 0 ? (
             movies.map((movie) => (
               <MovieCard
@@ -89,10 +89,9 @@ const Movie = () => {
           ) : null}
         </div>
   
-        {/* Load More Button */}
         {movies.length > 0 && !loading && (
           <button
-            className="mt-6 px-6 py-2 text-lg font-semibold text-white bg-gradient-to-r from-neon-pink to-neon-lime rounded-md shadow-lg hover:shadow-neon-cyan hover:scale-105 transition-all duration-300"
+            className="mt-6 px-8 py-3 sm:px-10 sm:py-4 text-lg font-semibold text-white bg-gradient-to-r from-neon-pink to-neon-lime rounded-md shadow-lg hover:shadow-neon-cyan hover:scale-105 transition-all duration-300"
             onClick={() => setPage(page + 1)}
           >
             Load More

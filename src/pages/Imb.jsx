@@ -121,13 +121,13 @@ const Imb = () => {
       <div className="pattern" />
       <div className="wrapper">
 
-        <header className="mb-6 text-center ml-40">
-          <img src="/hero.png" alt="Hero Banner" className="mx-auto" />
+        <header className="mb-6 text-center">
+          <img src="/hero.png" alt="Hero Banner" className="mx-auto max-sm:mt-10" />
           <h1 className="text-4xl font-bold mt-4">
             🎥 Discover <span className="text-gradient">Awesome Movies</span> Instantly!
           </h1>
         </header>
-        <div className="flex-grow ml-64 p-6">
+        <div className="flex-grow p-6">
           <NavBar />
           {/* Trending Based on Searches */}
           <section id="trendingSearches" className="trending">

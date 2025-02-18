@@ -20,6 +20,9 @@
   --breakpoint-xs: 480px;
 
   --background-image-hero-pattern: url("/hero-bg.webp");
+
+  --color-neon-cyan: #00ffff;
+  --color-neon-lime: #bfff00
 }
 
 @layer base {
@@ -221,4 +224,24 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* Custom Scrollbar for Modal */
+.modal-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Width of scrollbar */
+}
+
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: #1a1a1a; /* Dark background */
+  border-radius: 5px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: #00ffff; /* Neon Cyan */
+  border-radius: 5px;
+  border: 2px solid #1a1a1a; /* Border around scrollbar */
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #bfff00; /* Neon Lime on hover */
 }
